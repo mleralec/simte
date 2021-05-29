@@ -5,13 +5,39 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vanilla counter</title>
+  <style>
+    html, body, main {height: 100%;font-family: sans-serif;}
+    main {display: flex;justify-content: center;align-items: center;}
+    button {height: 50px;width: 50px;font-size: 30px;}
+    #counter {padding: 50px;font-size: 30px;}
+  </style>
 </head>
 <body>
-  <button id="decrement">-</button>
-  <div id="counter">0</div>
-  <button id="increment">+</button>
+  <main>
+    <button id="decrement">-</button>
+    <div id="counter">0</div>
+    <button id="increment">+</button>
+  </main>
 
-  <script src="../../dist/index.iife.js"></script>
-  <script src="index.js"></script>
+  <script src="https://unpkg.com/simte@0.0.1/dist/index.iife.js"></script>
+  <script text="javascript">
+    const counterElement = document.getElementById('counter')
+    const decrementBtn = document.getElementById('decrement')
+    const incrementBtn = document.getElementById('increment')
+
+    const { createState } = simte
+    const state = createState({ counter: Number(counterElement.textContent) })
+
+    const render = state => {
+      counterElement.textContent = state.counter
+    }
+
+    const decrement = () => state.setState({ counter: state.getState().counter - 1 })
+    const increment = () => state.setState({ counter: state.getState().counter + 1 })
+    decrementBtn.addEventListener('click', decrement)
+    incrementBtn.addEventListener('click', increment)
+
+    state.subscribe(render)
+  </script>
 </body>
 </html>
