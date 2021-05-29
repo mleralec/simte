@@ -1,0 +1,49 @@
+{
+  "name": "simte",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "dist/index.cjs.js",
+  "types": "dist/index.d.ts",
+  "author": "mleralec",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mleralec/simte"
+  },
+  "bugs": {
+    "url": "https://github.com/mleralec/simte/issues"
+  },
+  "homepage": "https://github.com/mleralec/simte#readme",
+  "keywords": [
+    "state",
+    "store",
+    "state management"
+  ],
+  "scripts": {
+    "build": "yarn clean && yarn build:iife && yarn build:cjs && yarn build:types",
+    "clean": "rm -rf dist",
+    "build:iife": "rollup -c --environment iife",
+    "build:cjs": "rollup -c --environment cjs",
+    "build:types": "rollup -c --environment types",
+    "lint": "eslint src/**/*.ts --max-warnings=0",
+    "test": "jest",
+    "prepare": "husky install",
+    "examples": "serve examples"
+  },
+  "dependencies": {},
+  "peerDependencies": {},
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.2.1",
+    "@types/jest": "^26.0.23",
+    "@typescript-eslint/eslint-plugin": "^4.25.0",
+    "@typescript-eslint/parser": "^4.25.0",
+    "eslint": "^7.27.0",
+    "husky": "^6.0.0",
+    "jest": "^27.0.2",
+    "rollup": "^2.50.4",
+    "rollup-plugin-dts": "^3.0.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "serve": "^11.3.2",
+    "ts-jest": "^27.0.1",
+    "typescript": "^4.3.2"
+  }
+}

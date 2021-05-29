@@ -1,0 +1,63 @@
+<div align="center">
+  <h1>Simte</h1>
+  <p>A simple state management for JS applications without dependencies.</p>
+  <p>< 500 Bytes 🏋️ and Typescript friendly.</p>
+</div>
+
+## 👀 Examples
+
+- [Vanilla counter app](examples/vanilla-counter/index.html)
+
+## 🔧 Installation
+
+### With npm
+
+```sh
+yarn add simte
+# OR
+npm i simte
+```
+
+```ts
+import { createState } from 'simte'
+```
+
+## 💻 Usage
+
+```ts
+// initialize the state
+const state = createState({ counter: 0 })
+
+// subscribe to updates
+state.subscribe(state => console.log(`The state has changed: ${state}`))
+
+// update the state
+state.setState({ counter: 1 }) // will log `The state has changed: { counter: 1 }`
+```
+
+## 📕 API
+
+### `createState(state)`
+
+Initialize the given state and return 4 methods:
+
+- getState
+- setState
+- subscribe
+- unsubscribe
+
+### `.getState()`
+
+Return the current state
+
+### `.setState(newState)`
+
+Update the current state with given parameter. This update will trigger listeners.
+
+### `.subscribe(listener)`
+
+Setup a listener with given parameter. The listener should be a function who receive the new state. The subscribe method will return an id (used for unsubscribe).
+
+### `.unsubscribe(id)`
+
+Unsubscribe a listener with his identifier.
