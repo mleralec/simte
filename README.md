@@ -71,3 +71,19 @@ Setup a listener with given parameter. The listener should be a function who rec
 ### `.unsubscribe(id)`
 
 Unsubscribe a listener with his identifier.
+
+## Typescript
+
+You can use your `Type` with Typescript. The return of the getState function, the parameter of the setState function, and the parameter of each listener will use this type.
+
+```ts
+type MyState = {
+  counter: number
+}
+
+const state = createState<MyState>({ counter: 0 })
+
+state.getState() // { counter: 0 } as MyState
+
+state.setState({ counter: 1, newProperty: 'hello' }) // will throw "Argument of type '{ counter: number; newProperty: string; }' is not assignable to parameter of type 'MyState'."
+```

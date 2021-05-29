@@ -10,3 +10,4 @@ prettier.config.js
 rollup.config.js
 tsconfig.json
 *.log
+*.tgz
