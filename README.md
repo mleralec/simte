@@ -1,5 +1,5 @@
 <div align="center">
-  <h1><a href="https://www.npmjs.com/package/simte" target="_blank">Simte</a></h1>
+  <h1><a href="https://www.npmjs.com/package/simte">Simte</a></h1>
   <p>A simple state management for JS applications without dependencies.</p>
   <p>< 500 Bytes 🏋️ and Typescript friendly.</p>
 </div>
@@ -14,6 +14,10 @@
 
 ```html
 <script src="https://unpkg.com/simte@0.0.1/dist/index.iife.js"></script>
+```
+
+```js
+const { createState } = simte
 ```
 
 ### With NPM
